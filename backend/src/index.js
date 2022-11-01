@@ -18,14 +18,19 @@ app.post('/api/login', (req,res) => {
     }
 })
 
-const productos = [{id:'100',nombre:'Tele'},{id:'101',nombre:'Silla'}];
-app.get('/api/productos',(req,res) => {
+const libros = [
+    {id:'100',titulo:'Don Segundo Sombra', autor:'Jose Hernandez'},
+    {id:'101',titulo:'Martin Fierro', autor: 'Ricardo Guiraldes'},
+    {id:'102',titulo:'Juan Moreira', autor: 'Eduardo Gutrierrez'}
+];
+
+app.get('/api/libros',(req,res) => {
     const token = req.headers['authorization'];
     jsonwebtoken.verify(token,'frase secreta',(err,payload) => {
         if(err) {
             res.sendStatus(401);
         } else {
-            res.json(productos)
+            res.json(libros)
         }
     })
 })
@@ -37,11 +42,42 @@ app.post('/api/productos',(req,res) => {
             res.sendStatus(401);
         } else {
             console.log(req.body);
-            productos.push(req.body);
+            libros.push(req.body);
             res.send('Alta ok');
         }
     })
 })
+
+
+const prestamos = [
+    {id:'100',idlibro:1},
+];
+
+app.get('/api/prestamos',(req,res) => {
+    const token = req.headers['authorization'];
+    jsonwebtoken.verify(token,'frase secreta',(err,payload) => {
+        if(err) {
+            res.sendStatus(401);
+        } else {
+            res.json(prestamos)
+        }
+    })
+})
+
+app.post('/api/prestamos',(req,res) => {
+    const token = req.headers['authorization'];
+    jsonwebtoken.verify(token,'frase secreta',(err,payload) => {
+        if(err) {
+            res.sendStatus(401);
+        } else {
+            console.log(req.body);
+            libros.push(req.body);
+            res.send('Alta ok');
+        }
+    })
+})
+
+
 
 // falta el delete de producto
 
