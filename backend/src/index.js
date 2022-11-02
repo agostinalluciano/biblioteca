@@ -18,6 +18,18 @@ app.post('/api/login', (req,res) => {
     }
 })
 
+app.post('/api/register', (req,res) => {
+    //if(req.body && req.body.email == "usuario@sistema.com" && req.body.password == "123456") {
+    //    const token = jsonwebtoken.sign(
+    //       {usuario:"usuario@sistema.com",rol:'ADM'},'frase secreta')
+        // faltaria agregar palabra Bearer (parte del protocolo)    
+    //    res.json(token);
+    //} else {
+    //    res.sendStatus(401);
+    res.sendStatus("A resolver");
+    //}
+})
+
 const productos = [{id:'100',nombre:'Tele'},{id:'101',nombre:'Silla'}];
 app.get('/api/productos',(req,res) => {
     const token = req.headers['authorization'];

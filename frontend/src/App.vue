@@ -26,12 +26,13 @@ export default {
 <template>
   <header>
     <div>
-      <p v-if="estaLogeado" >Usuario Logeado: {{ this.usuario.email }}</p> 
+      <p v-if="estaLogeado" >Usuario Logueado: {{ this.usuario.email }}</p> 
       <nav>
         <RouterLink to="/">Home</RouterLink> |
         <RouterLink to="/about">About</RouterLink> |
-        <RouterLink v-if="estaLogeado" to="/sistema">Sistema</RouterLink> |
+        <RouterLink v-if="estaLogeado" to="/sistema">Sistema | </RouterLink> 
         <RouterLink v-if="!estaLogeado" to="/login">Login</RouterLink> |
+        <RouterLink v-if="!estaLogeado" to="/register">Register</RouterLink> |
         <button @click="logoutForm"  v-if="estaLogeado">Logout</button>
       </nav>
     </div>
