@@ -22,6 +22,18 @@ export const loginStore = defineStore('loginStore',{
                 this.estaLogeado = false;
             }
         },
+        async register(usuario) {
+            try {
+                const datos = await axios.post('http://localhost:3001/api/register',usuario);
+                this.usuario.email = usuario.email;
+                this.estaLogeado = true;
+                localStorage.setItem('usuario',                
+                    JSON.stringify({email:usuario.email,token:datos.data}));
+            } catch (e) {
+                this.usuario = {};
+                this.estaLogeado = false;
+            }
+        },
         logout() {
             this.estaLogeado = false;
             this.usuario.email = "";
