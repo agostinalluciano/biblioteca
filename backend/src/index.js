@@ -7,6 +7,13 @@ const app = express() ;
 app.use(cors());
 app.use(bodyParser.json());
 
+
+
+app.post('/api/register', (req,res) => {
+    res.sendStatus(200);
+})
+
+
 app.post('/api/login', (req,res) => {
     if(req.body && req.body.email == "usuario@sistema.com" && req.body.password == "123456") {
         const token = jsonwebtoken.sign(
@@ -63,6 +70,8 @@ app.get('/api/prestamos',(req,res) => {
         }
     })
 })
+
+// break hasta 21:30
 
 app.post('/api/prestamos',(req,res) => {
     const token = req.headers['authorization'];
