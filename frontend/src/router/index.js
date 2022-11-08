@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Sistema from '../views/Sistema.vue'
+import Book from '../views/Book.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +28,12 @@ const router = createRouter({
       path: '/sistema',
       name: 'sistema',
       component: Sistema,
+      meta: { RequireAuth: true}
+    },
+    {
+      path: '/book',
+      name: 'book',
+      component: Book,
       meta: { RequireAuth: true}
     },
     {

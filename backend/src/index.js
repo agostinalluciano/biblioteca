@@ -43,7 +43,7 @@ app.get('/api/libros',(req,res) => {
     })
 })
 
-app.post('/api/productos',(req,res) => {
+app.post('/api/libros',(req,res) => {
     const token = req.headers['authorization'];
     jsonwebtoken.verify(token,'frase secreta',(err,payload) => {
         if(err) {
