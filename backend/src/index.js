@@ -57,7 +57,14 @@ app.post('/api/productos',(req,res) => {
 
 
 const prestamos = [
-    {id:'100',idlibro:1},
+    {id:'100',idlibro:1, idUser:9, returned:0},
+    {id:'101',idlibro:2, idUser:9, returned:1},
+    {id:'102',idlibro:3, idUser:6, returned:0},
+    {id:'103',idlibro:4, idUser:6, returned:1},
+    {id:'104',idlibro:1, idUser:4, returned:0},
+    {id:'105',idlibro:3, idUser:4, returned:1},
+    {id:'106',idlibro:4, idUser:2, returned:0},
+    {id:'107',idlibro:5, idUser:1, returned:0},
 ];
 
 app.get('/api/prestamos',(req,res) => {
@@ -70,8 +77,6 @@ app.get('/api/prestamos',(req,res) => {
         }
     })
 })
-
-// break hasta 21:30
 
 app.post('/api/prestamos',(req,res) => {
     const token = req.headers['authorization'];
