@@ -15,17 +15,28 @@ app.post('/api/register', (req,res) => {
 
 
 app.post('/api/login', (req,res) => {
-    if(req.body && req.body.email == "usuario@sistema.com" && req.body.password == "123456") {
+    if(req.body && req.body.email == "admin@sistema.com" && req.body.password == "123456") {
         const token = jsonwebtoken.sign(
-            {usuario:"usuario@sistema.com",rol:'ADM'},'frase secreta')
+            {usuario:"admin@sistema.com",rol:'ADM'},'frase secreta')
+        // faltaria agregar palabra Bearer (parte del protocolo)    
+        res.json(token);
+    } else if(req.body && req.body.email == "usuario@sistema.com" && req.body.password == "123456") {
+        const token = jsonwebtoken.sign(
+            {usuario:"usuario@sistema.com",rol:'USR'},'frase secreta')
+        // faltaria agregar palabra Bearer (parte del protocolo)    
+        res.json(token);
+    } else if(req.body && req.body.email == "usuario@sistema.com" && req.body.password == "123456") {
+        const token = jsonwebtoken.sign(
+            {usuario:"usuario@sistema.com",rol:'BIB'},'frase secreta')
         // faltaria agregar palabra Bearer (parte del protocolo)    
         res.json(token);
     } else {
         res.sendStatus(401);
     }
+
 })
 
-const libros = [
+let libros = [
     {id:'100',titulo:'Don Segundo Sombra', autor:'Jose Hernandez'},
     {id:'101',titulo:'Martin Fierro', autor: 'Ricardo Guiraldes'},
     {id:'102',titulo:'Juan Moreira', autor: 'Eduardo Gutrierrez'}
@@ -44,7 +55,7 @@ app.get('/api/libros',(req,res) => {
 
 // break hasta 21:30
 
-app.post('/api/prestamos',(req,res) => {
+app.post('/api/libros',(req,res) => {
     const token = req.headers['authorization'];
     jsonwebtoken.verify(token,'frase secreta',(err,payload) => {
         if(err) {
@@ -53,6 +64,26 @@ app.post('/api/prestamos',(req,res) => {
             console.log(req.body);
             libros.push(req.body);
             res.send('Alta ok');
+        }
+    })
+})
+
+app.delete('/api/libros/:id',(req,res) => {
+    const token = req.headers['authorization'];
+    jsonwebtoken.verify(token,'frase secreta',(err,payload) => {
+        if(err) {
+            res.sendStatus(401);
+        } else {
+            console.log(req.params.id);
+            //libros = libros.filter((libro) => {libro.id !== req.params.id})
+            let aux = []
+            for(let i = 0; i < libros.length; i++) {
+                if(libros[i].id != req.params.id) {
+                    aux.push(libros[i])
+                }
+            }
+            libros = aux
+            res.send('Borrado ok');
         }
     })
 })

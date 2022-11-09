@@ -40,6 +40,7 @@ export default {
         try {
             apiClient.defaults.headers['authorization'] =
             JSON.parse(localStorage.getItem('usuario')).token 
+            console.log('Id del libro: ' +  bookId);
             const datos = await apiClient.delete('/libros/' + bookId);    
             return datos.data
         } catch(e) {

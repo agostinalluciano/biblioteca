@@ -18,6 +18,12 @@
         <div class="col-md-5">
           <h4>Registro de libros</h4>
           <form @submit.prevent>
+            <!-- ID del libro -->
+            <div class="form-group">
+              <label class="control-label" for="book-id">ID del libro</label>
+              <input v-model="book.id" type="text" id="book-id" class="form-control" />
+            </div>
+            <br />
             <!-- Nombre del libro -->
             <div class="form-group">
               <label class="control-label" for="book-name">Nombre del libro</label>
@@ -61,6 +67,8 @@
                 <tr>
                   <td>{{ book.titulo }}</td>
                   <td>{{ book.autor }}</td>
+                  <td><button @click="deleteBook(book.id)">Eliminar</button></td>
+
                 </tr>
               </tbody>
           </table>
@@ -86,6 +94,11 @@ export default {
       mensajeError: "",
     };
   },
+  async mounted() {
+    console.log('Cargar')
+    this.books = await bookService.getBooks();
+
+  },
   methods: {
 
     async createBook() {
@@ -93,6 +106,20 @@ export default {
         const datos = await bookService.postBook({ ...this.book });
         console.log(datos);
         //this.books.push({...this.book})
+        this.books = await bookService.getBooks();
+
+      } catch (e) {
+        this.mensajeError = e;
+      }
+    },
+    async deleteBook(bookId) {
+      try {
+        console.log(bookId);
+
+        const datos = await bookService.deleteBook(bookId);
+        console.log(datos);
+        //this.books.push({...this.book})
+        //this.books = this.books.filter((libros) => )
         this.books = await bookService.getBooks();
 
       } catch (e) {
