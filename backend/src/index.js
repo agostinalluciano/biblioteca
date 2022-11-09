@@ -17,19 +17,19 @@ app.post('/api/register', (req,res) => {
 app.post('/api/login', (req,res) => {
     if(req.body && req.body.email == "admin@sistema.com" && req.body.password == "123456") {
         const token = jsonwebtoken.sign(
-            {usuario:"admin@sistema.com",rol:'ADM'},'frase secreta')
+            {usuario:"admin@sistema.com",rol:'ADM',idUser:1},'frase secreta')
         // faltaria agregar palabra Bearer (parte del protocolo)    
-        res.json(token);
+        res.json({token:token,rol:'ADM'});
     } else if(req.body && req.body.email == "usuario@sistema.com" && req.body.password == "123456") {
         const token = jsonwebtoken.sign(
-            {usuario:"usuario@sistema.com",rol:'USR'},'frase secreta')
+            {usuario:"usuario@sistema.com",rol:'USR',idUser:3},'frase secreta')
         // faltaria agregar palabra Bearer (parte del protocolo)    
-        res.json(token);
-    } else if(req.body && req.body.email == "usuario@sistema.com" && req.body.password == "123456") {
+        res.json({token:token,rol:'USR'});
+    } else if(req.body && req.body.email == "biblio@sistema.com" && req.body.password == "123456") {
         const token = jsonwebtoken.sign(
-            {usuario:"usuario@sistema.com",rol:'BIB'},'frase secreta')
+            {usuario:"biblio@sistema.com",rol:'BIB',idUser:2},'frase secreta')
         // faltaria agregar palabra Bearer (parte del protocolo)    
-        res.json(token);
+        res.json({token:token,rol:'BIB'});
     } else {
         res.sendStatus(401);
     }
