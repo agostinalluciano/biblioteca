@@ -90,15 +90,21 @@ app.delete('/api/libros/:id',(req,res) => {
 
 
 const prestamos = [
-    {id:'100',idlibro:1, idUser:9, returned:0},
-    {id:'101',idlibro:2, idUser:9, returned:1},
-    {id:'102',idlibro:3, idUser:6, returned:0},
+    {id:'101',idlibro:3, nombreLibro:"Batman", idUser:6, nombreUsuario:"David", returned:0},
+    {id:'102',idlibro:4, nombreLibro:"DonQuijote", idUser:6, nombreUsuario:"Agostina", returned:1},
+    {id:'103',idlibro:1, nombreLibro:"La Celestina", idUser:4, nombreUsuario:"Carolina", returned:0},
+    {id:'104',idlibro:3, nombreLibro:"Lazarillo", idUser:2, nombreUsuario:"Agostina", returned:1},
+    {id:'105',idlibro:4, nombreLibro:"Hamlet", idUser:1, nombreUsuario:"Nicolas Lavarello", returned:0},
+    {id:'106',idlibro:5, nombreLibro:"Romeo y Julieta", idUser:9, nombreUsuario:"David", returned:0},
+    {id:'107',idlibro:3, nombreLibro:"Buen Viaje Sr Presidente", idUser:3, nombreUsuario:"Carolina", returned:0}
+
+    /* {id:'102',idlibro:3, idUser:6, returned:0},
     {id:'103',idlibro:4, idUser:6, returned:1},
     {id:'104',idlibro:1, idUser:4, returned:0},
     {id:'105',idlibro:3, idUser:4, returned:1},
     {id:'106',idlibro:4, idUser:2, returned:0},
     {id:'107',idlibro:5, idUser:1, returned:0},
-    {id:'108',idlibro:3, idUser:9, returned:0},
+    {id:'108',idlibro:3, idUser:9, returned:0}, */
 
 ];
 
