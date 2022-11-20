@@ -58,7 +58,6 @@
                       <th>
                           Autor
                       </th>
-                      <th></th>
                   </tr>
               </thead>
               <!-- Cuerpo de la tabla -->
