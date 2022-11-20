@@ -49,6 +49,7 @@
     
     <script>
     import statisticsService from '../service/statisticsService';
+
     export default {
         data() {
         return {
@@ -62,6 +63,7 @@
 
         async traerPrestamos() {
           try {
+            this.prestamos= [];
             this.prestamos = await statisticsService.getPrestamos();
           } catch (e) {
             this.mensajeError = e;
@@ -69,10 +71,10 @@
         },
         async traerDevueltos() {
           try {
-            
+            this.prestamos= [];
             let d = await statisticsService.getPrestamos();
             d.forEach(e => {
-              if (e.returned == 0){
+              if (e.returned == 1){
                 this.prestamos.push(e)
               }
             });
@@ -83,9 +85,10 @@
         },
         async traerNoDevueltos() {
           try {
+            this.prestamos= [];
             let datos = await statisticsService.getPrestamos();
             datos.forEach(e => {
-              if (e.returned == 1){
+              if (e.returned == 0){
                 this.prestamos.push(e)
               }
             });
@@ -95,9 +98,9 @@
         },
         async traerMasPedido() {
           try {
-
+            this.prestamos= [];
             let datos = await statisticsService.getPrestamos();
-           datos.forEach(e => {
+            datos.forEach(e => {
             if (e.idlibro == 3 ){
               this.prestamos.push(e)
             }
