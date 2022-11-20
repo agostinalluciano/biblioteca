@@ -31,7 +31,7 @@ import {storeToRefs} from 'pinia'
             async login() {
                 await this.login(this.usuarioForm);
                 if ( this.estaLogeado ) {
-                    this.$router.push('/sistema')
+                    this.$router.push('/about')
                 } else {
                     this.mensajeError = "Error en credenciales"
                 }

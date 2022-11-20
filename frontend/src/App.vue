@@ -44,7 +44,7 @@ export default {
             <div class="navbar-nav">
               <RouterLink class="nav-link active" aria-current="page" to="/">Home</RouterLink> 
               <RouterLink class="nav-link" to="/about">About</RouterLink>
-              <RouterLink class="nav-link" v-if="estaLogeado" to="/sistema">Sistema</RouterLink>
+              <!-- <RouterLink class="nav-link" v-if="estaLogeado" to="/sistema">Sistema</RouterLink> -->
               <RouterLink class="nav-link" v-if="estaLogeado" to="/book">Libros</RouterLink>
               <RouterLink class="nav-link" v-if="estaLogeado" to="/statistics">Estadisticas</RouterLink>
 
