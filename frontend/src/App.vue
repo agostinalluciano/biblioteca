@@ -46,6 +46,8 @@ export default {
               <RouterLink class="nav-link" to="/about">About</RouterLink>
               <RouterLink class="nav-link" v-if="estaLogeado" to="/sistema">Sistema</RouterLink>
               <RouterLink class="nav-link" v-if="estaLogeado" to="/book">Libros</RouterLink>
+              <RouterLink class="nav-link" v-if="estaLogeado" to="/statistics">Estadisticas</RouterLink>
+
             </div>
           </div>
           

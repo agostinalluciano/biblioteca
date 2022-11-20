@@ -98,6 +98,8 @@ const prestamos = [
     {id:'105',idlibro:3, idUser:4, returned:1},
     {id:'106',idlibro:4, idUser:2, returned:0},
     {id:'107',idlibro:5, idUser:1, returned:0},
+    {id:'108',idlibro:3, idUser:9, returned:0},
+
 ];
 
 app.get('/api/prestamos',(req,res) => {

@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Sistema from '../views/Sistema.vue'
 import Book from '../views/Book.vue'
+import Statistics from '../views/Statistics.vue'
 
 
 const router = createRouter({
@@ -34,6 +35,12 @@ const router = createRouter({
       path: '/book',
       name: 'book',
       component: Book,
+      meta: { RequireAuth: true}
+    },
+    {
+      path: '/statistics',
+      name: 'statistics',
+      component: Statistics,
       meta: { RequireAuth: true}
     },
     {
