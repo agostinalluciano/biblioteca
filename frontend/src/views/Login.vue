@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h2>Login</h2>
+    <h2 class="text-center fw-bolder">Login</h2>
 
     <div id="layoutAuthentication">
       <div id="layoutAuthentication_content">

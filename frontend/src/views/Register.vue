@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h2>Registrarse</h2>
+    <h2 class="text-center fw-bolder">Registrarse</h2>
 
     <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
@@ -37,22 +37,7 @@
             </div>
             
         </div>
-
-
-
-
-
-
-
-
-   <!--  <form @submit.prevent="register">
-        correo <input v-model="usuarioForm.email" type="email" required> <br/>
-        password <input v-model="usuarioForm.password" type="password" required> <br/>
-        <button type="submit">Register</button> <br/>
-        {{ mensajeError }}
-    </form> -->
-
-  </main>
+</main>
 </template>
 
 <script>

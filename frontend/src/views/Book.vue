@@ -7,14 +7,18 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
 
   <body>
-    <h3>Registro de Libros</h3>
+    <!-- <h3>Registro de Libros</h3>
 
-    <br />
+    <br /> -->
     <div class="container-fluid">
-      <div class="row">
+      <h1 class="text-center fw-bolder text-primary">Registro de Libros</h1>
+
+      <br/>
+      <div class="row justify-content-center">
         <!-- Alta de libros -->
         <div class="col-md-5">
           <h4>Registro de libros</h4>
@@ -39,9 +43,7 @@
             <br />
             <!-- Botón para registrar libros -->
             <div class="form-group">
-              <!-- <a type="button" class="btn btn-secondary"> Volver</a> -->
               <button @click="createBook" class="btn btn-primary">Registrar libro</button>
-              <!-- <input @click="createBook" type="submit" value="Registrar libro" class="btn btn-primary"/> -->
             </div>
           </form>
         </div>
@@ -67,8 +69,8 @@
                 <tr>
                   <td>{{ book.titulo }}</td>
                   <td>{{ book.autor }}</td>
-                  <td><button @click="deleteBook(book.id)">Eliminar</button></td>
-
+                  <!-- <td><button @click="deleteBook(book.id)">Eliminar</button></td> -->
+                  <td><a @click="deleteBook(book.id)"> <i class="fa fa-trash" aria-hidden="true"></i> </a></td>
                 </tr>
               </tbody>
           </table>
